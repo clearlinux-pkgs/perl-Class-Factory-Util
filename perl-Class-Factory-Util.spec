@@ -4,22 +4,30 @@
 #
 Name     : perl-Class-Factory-Util
 Version  : 1.7
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Class-Factory-Util-1.7.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Class-Factory-Util-1.7.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libc/libclass-factory-util-perl/libclass-factory-util-perl_1.7-3.debian.tar.xz
 Summary  : Provide utility methods for factory classes
 Group    : Development/Tools
-License  : Artistic-1.0 Artistic-1.0+GPL-1.0 Artistic-1.0-Perl Artistic-1.0-cl8 GPL-1.0 GPL-2.0
+License  : Artistic-1.0-Perl GPL-2.0
 Requires: perl-Class-Factory-Util-license
-Requires: perl-Class-Factory-Util-man
-BuildRequires : perl-Module-Build
+BuildRequires : buildreq-cpan
 
 %description
 NAME
 Class::Factory::Util - Provide utility methods for factory classes
 SYNOPSIS
 package My::Class;
+
+%package dev
+Summary: dev components for the perl-Class-Factory-Util package.
+Group: Development
+Provides: perl-Class-Factory-Util-devel
+
+%description dev
+dev components for the perl-Class-Factory-Util package.
+
 
 %package license
 Summary: license components for the perl-Class-Factory-Util package.
@@ -29,19 +37,11 @@ Group: Default
 license components for the perl-Class-Factory-Util package.
 
 
-%package man
-Summary: man components for the perl-Class-Factory-Util package.
-Group: Default
-
-%description man
-man components for the perl-Class-Factory-Util package.
-
-
 %prep
-tar -xf %{SOURCE1}
-cd ..
 %setup -q -n Class-Factory-Util-1.7
-mkdir -p %{_topdir}/BUILD/Class-Factory-Util-1.7/deblicense/
+cd ..
+%setup -q -T -D -n Class-Factory-Util-1.7 -b 1
+mkdir -p deblicense/
 mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Class-Factory-Util-1.7/deblicense/
 
 %build
@@ -83,11 +83,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %defattr(-,root,root,-)
 /usr/lib/perl5/site_perl/5.26.1/Class/Factory/Util.pm
 
+%files dev
+%defattr(-,root,root,-)
+/usr/share/man/man3/Class::Factory::Util.3
+
 %files license
 %defattr(-,root,root,-)
 /usr/share/doc/perl-Class-Factory-Util/LICENSE
 /usr/share/doc/perl-Class-Factory-Util/deblicense_copyright
-
-%files man
-%defattr(-,root,root,-)
-/usr/share/man/man3/Class::Factory::Util.3
