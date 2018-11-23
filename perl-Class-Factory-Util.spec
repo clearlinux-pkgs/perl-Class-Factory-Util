@@ -4,7 +4,7 @@
 #
 Name     : perl-Class-Factory-Util
 Version  : 1.7
-Release  : 3
+Release  : 4
 URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Class-Factory-Util-1.7.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Class-Factory-Util-1.7.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libc/libclass-factory-util-perl/libclass-factory-util-perl_1.7-3.debian.tar.xz
@@ -81,7 +81,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/Class/Factory/Util.pm
+/usr/lib/perl5/vendor_perl/5.28.0/Class/Factory/Util.pm
 
 %files dev
 %defattr(-,root,root,-)
