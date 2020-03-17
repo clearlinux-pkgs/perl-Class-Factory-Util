@@ -4,7 +4,7 @@
 #
 Name     : perl-Class-Factory-Util
 Version  : 1.7
-Release  : 16
+Release  : 17
 URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Class-Factory-Util-1.7.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Class-Factory-Util-1.7.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libc/libclass-factory-util-perl/libclass-factory-util-perl_1.7-3.debian.tar.xz
@@ -80,7 +80,7 @@ make TEST_VERBOSE=1 test
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Class-Factory-Util
 cp %{_builddir}/Class-Factory-Util-1.7/LICENSE %{buildroot}/usr/share/package-licenses/perl-Class-Factory-Util/f235ba4160673bcb7c9d58c2f09dbc7fc0efadea
-cp %{_builddir}/Class-Factory-Util-1.7/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Class-Factory-Util/5f07578ffdd10f877b0f3dd14d1681540d7b2368
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-Class-Factory-Util/5f07578ffdd10f877b0f3dd14d1681540d7b2368
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -105,4 +105,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Class/Factory/Util.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Class/Factory/Util.pm
